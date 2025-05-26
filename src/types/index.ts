@@ -8,11 +8,15 @@ type Post = {
     title: string;
     body: string;
     reactions: Reaction;
-    views: number
+    views: number;
+    tags: string[]
 }
 
 type PostResponse = {
     posts: Post[]
 }
 
+type PostInformation = {
+
+}
 export {PostResponse, Post}

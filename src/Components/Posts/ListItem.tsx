@@ -5,7 +5,8 @@ import {
   faHeartBroken,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import PostData from "./PostData";
 
 type ListItemProps = {
   post: Post;
@@ -14,15 +15,17 @@ type ListItemProps = {
 const ListItem = ({ post }: ListItemProps) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{post.title}</Text>
-      <View style={styles.reactions}>
-        <FontAwesomeIcon icon={faHeart} color="red" />
-        <Text>{post.reactions.likes}</Text>
-        <FontAwesomeIcon icon={faHeartBroken} color="#5539CC" />
-        <Text>{post.reactions.dislikes}</Text>
-        <FontAwesomeIcon icon={faEye} />
-        <Text>{post.views}</Text>
-      </View>
+      <TouchableOpacity onPress={() => <PostData post={post}/>}>
+        <Text style={styles.title}>{post.title}</Text>
+        <View style={styles.reactions}>
+          <FontAwesomeIcon icon={faHeart} color="red" />
+          <Text>{post.reactions.likes}</Text>
+          <FontAwesomeIcon icon={faHeartBroken} color="#5539CC" />
+          <Text>{post.reactions.dislikes}</Text>
+          <FontAwesomeIcon icon={faEye} />
+          <Text>{post.views}</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };

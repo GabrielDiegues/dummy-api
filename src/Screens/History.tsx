@@ -1,22 +1,12 @@
-import { useEffect, useState } from "react";
-import { dummyApi } from "@/api";
-import { Post, PostResponse } from "@/types";
+import { Home } from "@/types/navigation";
+import ApiRequest from "@/Components/ApiRequest";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import List from "@/Components/Posts/List";
 
-const History = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
+const History = ({route}: NativeStackScreenProps<Home, 'History'>) => {
+  const {gender} = route.params;
 
-  const fetchPosts = async () => {
-    const { data } = await dummyApi.get<PostResponse>(`posts/tag/history`);
-    setPosts(data.posts);
-  };
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-
-  return <List posts={posts} />;
+  return <ApiRequest gender={gender}/>;
 };
 
 export default History;
