@@ -1,3 +1,6 @@
+# Grupo
+- Gabriel Diegues Figueiredo Rocha | RM: 550788
+
 # Usando API do DummyJson
 
 A proposta deste projeto é mostrar posts contidos de história e ficção contidos no DummyJson.
